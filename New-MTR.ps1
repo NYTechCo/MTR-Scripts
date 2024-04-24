@@ -20,7 +20,10 @@
 #
 
 # This module requires the ExchangeOnline and Microsoft Graph PowerShell 
-# modules.  
+# modules.  They can be installed with the commands below
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# Install-Module Microsoft.Graph -Scope CurrentUser
+# Install-Module ExchangeOnlineManagement -Scope CurrentUser
 
 # 
 # Microsoft Requires the UsageLocation to be set on the user to assign
@@ -58,7 +61,7 @@ while (!(($liceseTypeResponse.ToLower() -eq "pro") -xor ($liceseTypeResponse.ToL
     $liceseTypeResponse = Read-Host -Prompt $licenseTypePrompt
 }
 
-$accountNamePrompt = "Enter the account name (ConferenceRoom@example.net): "
+$accountNamePrompt = "Enter the account id (ConferenceRoom@example.net): "
 $accountName = Read-Host -Prompt $accountNamePrompt
 
 $namePrompt = "Enter the Room Name: "
