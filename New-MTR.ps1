@@ -169,7 +169,7 @@ Set-CalendarProcessing -Identity $accountName `
                        -ProcessExternalMeetingMessages $ProcessExternalMeetings
                     
 Write-Host "Querying the AzureAD account"
-Get-MgUser -Search "mail:$accountName" -ConsistencyLevel eventual
+$account = Get-MgUser -Search "mail:$accountName" -ConsistencyLevel eventual
 
 Write-Host "Updating Usage Location and password expiration per Mircrosoft recommendations"
 Update-MgUser -UserId $account.Id -PasswordPolicies DisablePasswordExpiration `
